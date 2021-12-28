@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="movieData.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="topnav">
+        <a href="signup.html">Signup</a>
+        <a href="login.html">Login</a>
+        <a class="home" href="home.html">Home</a>
+    </div>
+    <div class="background">
+        <input class="movie" type="text" placeholder="enter URL">
+        <input class="date" type="date" placeholder="Release Date">
+        <input class="rating" type="number" placeholder="Enter IMDB Rating">
+        <button class='btns'>SUBMIT</button>
+
+    </div>
+</body>
+
+</html>
+<script>
+    document.querySelector('.bttn').addEventListener('click', addMovie)
+
+    var movieDetails = JSON.parse(localStorage.getItem('movieData')) || []
+
+    function addMovie() {
+        var movie = document.querySelector('.movie').value
+        var release = document.querySelector('.date').value
+        var rate = document.querySelector('.rating').value
+
+        var obj = {
+            movie: movie,
+            releaseDate: release,
+            rating: rate
+        }
+        movieDetails.push(obj)
+        localStorage.setItem("movieData", JSON.stringify(movieDetails));
+    }
+
+</script>

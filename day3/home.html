@@ -2,38 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.topnav {
-    align-content: flex-end;
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: right;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  margin-right: 20px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-    align-content: flex-end;
-  color: white;
-}
-</style>
+<link href="home.css" rel="stylesheet">
 </head>
 <body>
 
@@ -44,10 +13,78 @@ body {
   
   
 </div>
-
-<div style="padding-left:16px">
-  
+  <div ><select id="IMDB"  onchange="imdb()">
+          <option value="">Sort</option>
+          <option value="low">Low to high</option>
+          <option value="high">High to Low</option>
+      </select></div>
+  <button onclick="Start()"></button>
+  <div class='slideshow'></div>
+  <div class='cont'></div>
 </div>
 
 </body>
 </html>
+<script>
+  var data = JSON.parse(localStorage.getItem('movieData'))
+  displayMovies(data)
+
+  function imdb() {
+      var select = document.querySelector('#IMDB').value
+      if (select == "low") {
+          data.sort(function (a, b) {
+              return (a.rating) - (b.rating);
+          });
+      }
+      if (select == "high") {
+          data.sort(function (a, b) {
+              return (b.rating) - (a.rating);
+          });
+      }
+      displayMovies(data);
+  }
+
+  function displayMovies(data) {
+      document.querySelector('.cont').textContent = ""
+      data.map(function (ele) {
+          var div = document.createElement('div')
+          div.setAttribute('class', 'details')
+
+          var img = document.createElement('img')
+          img.setAttribute("src", ele.movie)
+          img.setAttribute('class', 'image')
+
+          var date = document.createElement('p')
+          date.textContent = ele.releaseDate
+
+          var IMDB_Rating = document.createElement('p')
+          IMDB_Rating.textContent = ele.rating
+
+          div.append(img, date, IMDB_Rating)
+          document.querySelector('.cont').append(div)
+      })
+  }
+
+  function Start() {
+      let images = JSON.parse(localStorage.getItem('movieImages'))
+      let div = document.querySelector('.slideshow')
+
+
+      var img = document.createElement('img')
+
+
+      let i = 0;
+
+      setInterval(function () {
+          if (i === images.length) {
+              i = 0
+          }
+          img.src = images[i]
+
+          div.append(img)
+          i++
+      }, 1000)
+  }
+
+
+</script>

@@ -2,7 +2,8 @@ document.querySelector('.btns').addEventListener('click', signup)
 
 var userDetails = [];
 
-function signup() {
+function signup(e){
+    e.preventDefault();
     var user = document.querySelector('.user').value
     var contact = document.querySelector('.contact').value
     var email = document.querySelector('.email').value
@@ -25,11 +26,14 @@ function signup() {
     if (pass == confirm) {
         userDetails.push(obj)
         localStorage.setItem("userData", JSON.stringify(userDetails));
-        window.location.href = "login.html";
+         window.location.href = "login.html"
         
     }
     else{
         alert("password doesn't match")
     }
-    
+    // userDetails.push(obj)
+    // localStorage.setItem("userData", JSON.stringify(userDetails));
+    //  window.location.href = "login.html"
+  
 }

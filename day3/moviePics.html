@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <input class="url" type="text" placeholder="enter URL">
+    <button onclick="Store()">IMAGE</button>
+</body>
+
+</html>
+<script>
+    function Store() {
+        var url = document.querySelector('.url').value
+
+        var images = JSON.parse(localStorage.getItem('movieImages')) || []
+
+        images.push(url)
+
+        localStorage.setItem('movieImages', JSON.stringify(images))
+    }
+</script>

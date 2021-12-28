@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: url("https://vidyasheela.com/web-contents/website-components/Login-Pages/transparent-login-page-template-in-html-and-css/background-img.jpg")
+    rgba(0, 0, 0, 0.61);
+  }
+  .cont {
+    width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 50px;
+    background: url("https://vidyasheela.com/web-contents/website-components/Login-Pages/transparent-login-page-template-in-html-and-css/background-img.jpg")
+  rgba(228, 90, 90, 0.61);
+background-blend-mode: normal;
+box-shadow: 0 0 15px rgb(255, 255, 255);
+
+
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+}
+
+.details {
+    margin-left: 40px;
+    color: red;
+ font-weight: bold;
+}
+
+.slideshow {
+    width: 40%;
+    height: 200px;
+    margin: auto;
+}
+
+.slideshow>img {
+    width: 100%;
+    height: 100%;
+}
+ 
+  .topnav {
+      align-content: flex-end;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    margin-right: 20px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+      align-content: flex-end;
+    
+    color: white;
+  }
