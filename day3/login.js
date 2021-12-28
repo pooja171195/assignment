@@ -8,7 +8,8 @@ var pass=document.querySelector('.pass').value
 //console.log(user,pass)
 for (var i=0;i<regdUser.length;i++){
     if((user==regdUser[i].name ||user==regdUser[i].emailID) && pass==regdUser[i].password){
-        window.location.href="home.html";
+       // window.location.href="home.html";
+       console.log("pooja");
         alert('LogIn Successful');
         break;
     }
