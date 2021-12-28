@@ -1,34 +1,35 @@
-      
-        //password validation
-        const username = document.querySelector("#username")
-        const contactno = document.querySelector("#contactno")
-        const email = document.querySelector("#email")
-        const pass = document.querySelector('#pass')
-        const confirm_pass = document.querySelector('#confirm-pass')
-        const msg = document.querySelector('p')
-        const btn = document.querySelector('button')
-        btn.addEventListener('click', (e) => {
-            if (pass.value != confirm_pass.value) {
-                e.preventDefault();
-                msg.style.display = "block"
-            }else{
-                alert('user registered sucessfully')
-            }
+document.querySelector('.btns').addEventListener('click', signup)
 
-        })
-        // const username = document.querySelector("#username")
-        // const contactno = document.querySelector("#contactno")
-        // const email = document.querySelector("#email")
-        // const pass = document.querySelector('#pass')
-        // const confirm_pass = document.querySelector('#confirm-pass')
-        // const msg = document.querySelector('p')
-        // const btn = document.querySelector('button')
-        // btn.addEventListener('click', (e) => {
-        //     if ((username.value == null)||(contactno.value == null)||(email.value==null)||(pass.value==null)||(confirm_pass.value==null)) {
-        //         e.preventDefault();
-        //         msg.style.display = "block"
-        //     }else{
-        //         alert('user registered sucessfully')
-        //     }
+var userDetails = [];
 
-        // })
+function signup() {
+    var user = document.querySelector('.user').value
+    var contact = document.querySelector('.contact').value
+    var email = document.querySelector('.email').value
+    var pass = document.querySelector('.pass').value
+    var confirm = document.querySelector('.confirm').value
+    if (user.length == 0 || contact.length == 0 || email.length == 0 || pass.length == 0 || confirm == 0) {
+        alert('fill credentials')
+    }
+
+    //console.log(user, contact, email)
+    var obj = {
+        name: user,
+        contact: contact,
+        emailID: email,
+        password: pass,
+        confirm: confirm,
+
+    }
+   // console.log(obj)
+    if (pass == confirm) {
+        userDetails.push(obj)
+        localStorage.setItem("userData", JSON.stringify(userDetails));
+        window.location.href = "login.html";
+        
+    }
+    else{
+        alert("password doesn't match")
+    }
+    
+}
