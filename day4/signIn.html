@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+         .cont{
+           border:1px solid black;
+           width: 80%;
+           height:60px;
+           display: flex;
+           justify-content: end;
+           align-items: center;
+           margin: auto; 
+       }
+       .cont>div{
+           margin-left: 10px;
+       }
+       h2{
+        text-align: center;
+       }
+       .details{
+           margin: auto;
+           width: 10%;
+           
+           
+       }
+       .details>input{
+           margin-bottom: 10px;
+       }
+    </style>
+</head>
+<body>
+    <div class='cont'>
+        <div>HOME</div>
+        <div>LOGIN</div>
+        <div>SIGNUP</div>
+    </div>
+    <h2>SIGN IN</h2>
+    <div class='details'>
+        <input  class='email' type="text" placeholder="enter email">
+        <input class="pwd" type="password" placeholder="enter password">
+        <button class='bttn'>SIGN IN</button>
+    </div>
+</body>
+</html>
+<script>
+document.querySelector('.bttn').addEventListener('click',signin)
+
+var regdUser=JSON.parse(localStorage.getItem('userData'))
+
+function signin(){
+var email=document.querySelector('.email').value
+var pwd=document.querySelector('.pwd').value
+
+for (var i=0;i<regdUser.length;i++){
+    if(email==regdUser[i].emailID && pwd==regdUser[i].password){
+        window.location.href="home.html";
+        alert('LogIn Successful');
+        break;
+    }
+    else{
+        alert('Invalid Details')
+        break;
+    }
+}
+}
+</script>

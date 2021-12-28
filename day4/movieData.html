@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+</head>
+<body>
+   <input class="movie" type="text" placeholder="enter URL">
+    <input class="date" type="date" placeholder="Release Date">
+    <input class="rating" type="number" placeholder="Enter IMDB Rating" >
+    <button class='bttn'>SUBMIT</button>
+</body>
+</html>
+<script>
+    document.querySelector('.bttn').addEventListener('click', addMovie)
+​
+    var movieDetails=JSON.parse(localStorage.getItem('movieData')) || []
+​
+    function addMovie(){
+        var movie=document.querySelector('.movie').value
+        var release=document.querySelector('.date').value
+        var rate=document.querySelector('.rating').value
+​
+        var obj={
+            movie:movie,
+            releaseDate:release,
+            rating:rate
+        }
+        movieDetails.push(obj)
+        localStorage.setItem("movieData", JSON.stringify(movieDetails));
+    }
+​
+</script>

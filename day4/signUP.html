@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+       .cont{
+           border:1px solid black;
+           width: 80%;
+           height:60px;
+           display: flex;
+           justify-content: end;
+           align-items: center;
+           margin: auto; 
+       }
+       .cont>div{
+           margin-left: 10px;
+       }
+       H2{
+          text-align: center;
+       }
+       .details{
+           margin: auto;
+           width: 20%;
+           height: 100px;
+           display: grid;
+       }
+       .details>input{
+           margin-bottom: 10px;
+       }
+       button{
+           width:50%;
+           margin: auto;
+       }
+   </style>
+</head>
+<body>
+    <div class='cont'>
+        <div>HOME</div>
+        <div>LOGIN</div>
+        <div>SIGNUP</div>
+    </div>
+    <H2>SIGN UP</H2>
+    <div class='details'>
+        <input  class='name' type="text " placeholder='enter name'>
+        <input class="email" type="text " placeholder='enter email' >
+        <input class="mobile" type="number" placeholder="enter mobile">
+        <input class="pwd" type="password" placeholder="enter password">
+        <button class='bttn'>SIGN UP</button>
+        <a href="signin.html"><p> SignIn Page</p></a>
+    </div>
+</body>
+</html>
+<script>
+document.querySelector('.bttn').addEventListener('click', signup)
+
+var user=JSON.parse(localStorage.getItem('userData')) || [];
+
+function signup(){
+var name=document.querySelector('.name').value
+var email=document.querySelector('.email').value
+var mobile=document.querySelector('.mobile').value
+var pwd=document.querySelector('.pwd').value
+ 
+if(name.length==0 || email.length==0 || mobile.length==0 || pwd.length==0){
+    alert('fill credentials')
+}
+
+var obj={
+    name:name,
+    emailID:email,
+    mobile:mobile,
+    password:pwd
+}
+user.push(obj)
+localStorage.setItem("userData", JSON.stringify(user));
+window.location.href = "signIn.html"
+}
+</script>
