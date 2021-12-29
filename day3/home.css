@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: url("https://vidyasheela.com/web-contents/website-components/Login-Pages/transparent-login-page-template-in-html-and-css/background-img.jpg")
+    background: url("https://th.bing.com/th/id/R.6a1aa752305190a282091f1fcd6d2ff9?rik=yBdqOLJXo32k%2fQ&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fChrEBl8.jpg&ehk=hV2bOkLl%2bDRdNcqgS2daIxquQhWh3HN%2bJkn1Sq7SC34%3d&risl=&pid=ImgRaw&r=0")
     rgba(0, 0, 0, 0.61);
   }
   .cont {
@@ -10,15 +10,16 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-top: 50px;
-    background: url("https://vidyasheela.com/web-contents/website-components/Login-Pages/transparent-login-page-template-in-html-and-css/background-img.jpg")
+    background: url("https://i.pinimg.com/originals/82/24/ed/8224ed0ffaec2965fd83c1c5d53693f6.jpg")
   rgba(228, 90, 90, 0.61);
 background-blend-mode: normal;
 box-shadow: 0 0 15px rgb(255, 255, 255);
-
+margin-bottom: 50px;
 
 }
 
 .image {
+  margin-top: 20px;
     width: 200px;
     height: 200px;
 }
@@ -33,6 +34,7 @@ box-shadow: 0 0 15px rgb(255, 255, 255);
     width: 40%;
     height: 200px;
     margin: auto;
+    margin-top: 20px;
 }
 
 .slideshow>img {
