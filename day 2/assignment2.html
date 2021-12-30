@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        #main {
+            display: flex;
+        }
+
+        #box {
+            width: 30px;
+            height: 30px;
+            font-size: 25px;
+            border: 1px solid black;
+            background-color: yellow;
+            text-align: center;
+            margin-left: 5%;
+            margin-top: 30px;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+
+        p {
+            font-size: 30px;
+            margin-left: 30px;
+        }
+
+
+        input {
+            margin-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" id='form'>
+        <p>TODO TASK</p>
+        <input id='task' type="text" placeholder="enter task">
+        <input type="submit" value='Add Task'>
+    </form>
+    <table>
+        <tr>
+            <thead>
+                <th>Task Name</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Done</th>
+                <th>Remove</th>
+            </thead>
+            <tbody> </tbody>
+        </tr>
+    </table>
+</body>
+
+</html>
+<script>
+    document.querySelector('#form').addEventListener("submit", addItem)
+
+    var arr = JSON.parse(localStorage.getItem('todotask')) || [];
+
+    displayTable(arr)
+
+    function task() {
+        this.name = document.querySelector('#task').value
+        this.date = new Date()
+        this.status = false
+    }
+
+    function addItem(event) {
+        event.preventDefault();
+        var a = new task()
+        arr.push(a)
+        localStorage.setItem('todotask', JSON.stringify(arr))
+        displayTable(arr)
+    }
+
+
+
+    function displayTable(arr) {
+        document.querySelector('tbody').innerHTML = ''
+        arr.map(function (elem,index) {
+            var row = document.createElement('tr')
+
+            var td1 = document.createElement('td')
+            td1.textContent = elem.name
+            var td2 = document.createElement('td')
+            td2.textContent = elem.date
+            var td3 = document.createElement('td')
+            td3.textContent = elem.status
+            td3.setAttribute('class', 'pointer')
+            td3.addEventListener('click',function(){
+                task_toggle(elem)
+            })
+            var td4 = document.createElement('td')
+            td4.textContent = 'Done'
+            td4.setAttribute('class', 'pointer')
+            td4.addEventListener('click',function(){
+                done_task(event)
+            })
+
+            var td5 = document.createElement('td')
+            td5.textContent = 'Remove'
+            td5.setAttribute('class', 'pointer')
+            td5.addEventListener('click',function(){
+                remove_task(index)
+            })
+
+            row.append(td1, td2, td3,td4,td5)
+            document.querySelector('tbody').append(row)
+           
+        })
+    }
+    function task_toggle(elem){
+    if(elem.status==false){
+        elem.status=true
+    }
+    else{
+        elem.status=false
+    }
+    localStorage.setItem('todotask',JSON.stringify(arr))
+    displayTable(arr)
+}
+
+
+</script>

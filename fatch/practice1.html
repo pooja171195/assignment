@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+#data{
+
+    display:grid;
+    grid-template-columns:repeat(4,25%);
+    margin-top: 5%;
+    grid-gap:10px;
+margin-left: 3%;
+}
+
+img{
+
+    width:50%;
+    height:200px;
+    border: 1px solid black;
+}
+
+</style>
+<body>
+    <h1>Get Dummy Users data IW Fatch</h1>
+
+
+    <div id="data"></div>
+  
+
+
+</body>
+</html>
+<script>
+  let container = document.getElementById("data");
+
+let data = [];
+
+fetch("https://reqres.in/api/users")
+  .then(function (res) {
+    return res.json();
+  })
+  .then(function (res) {
+    data = res.data;
+      console.log("data:", data);
+      
+      //data = data.filter(function (el){
+
+       // return data;
+      //})
+
+      appendProducts(data)
+  });
+  
+
+function appendProducts(d) {
+  d.forEach(function (el) {
+    let div = document.createElement("div");
+
+    let avatar = document.createElement("img");
+
+    avatar.src = el.avatar;
+
+    let name = document.createElement("p");
+
+    name.innerText = `${el.first_name} ${el.last_name}`
+
+    let email = document.createElement("p");
+
+    email.innerText = el.email;
+
+
+      
+
+      div.append(avatar,name, email)
+
+      container.appendChild(div);
+      
+
+  });
+}
+
+</script>

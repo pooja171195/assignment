@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+</head>
+<body>
+    Name<input class="name" type="text">
+    <button onclick="register()">REGISTER</button>
+    <div class='vaccine'>Number Of Vacccines =</div>
+    <div class="person">Persons = </div>
+    
+</body>
+</html>
+
+<script>
+    let queue=['pablo','babu','shyam','raju','shinchan']
+    let vaccines=4
+    // document.querySelector(".vaccine").append(vaccines ).innerHTML=[]   //.mistake3 take this also below
+
+    let persons=queue.length
+
+
+
+    function register(){
+        let name=document.querySelector('.name').value
+
+        queue.push(name);
+
+        let message=`${name} Your Registration Is Successful`
+        alert(message)
+
+        let mypromise= new Promise(function(resolve,reject){
+            setTimeout(function(){
+                if(queue[0]===name){
+                    resolve(`${name} Your Turn Now`) 
+                }
+                else if(vaccines==0){                     //mistake1. not providing condition            
+                    reject('vaccines are over')
+                }
+            },3000);
+        });
+
+     mypromise
+     .then(function(res){
+         console.log('res:', res)
+        //  let mess=`${res} your turn`
+        //  alert(mess)
+        })
+      .catch(function(err){
+          console.log(err)                            //mistake2. catch condition
+      })  
+    }
+    
+    function startVaccinated(){
+    // var vaccineCount =   document.querySelector(".vaccine").append(vaccines-- )
+    // var person = document.querySelector(".person").append(persons--)  //mistake3. take these conditon below
+    
+        queue.shift();
+
+        if(queue.length===0 || vaccines==0){
+            clearInterval(id)    
+        }
+        document.querySelector('.vaccine').innerHTML = No_of_vaccines =`${vaccines--}`;
+    document.querySelector('.person').innerHTML = No_of_people =       `${queue.length}`;
+    }
+    let id=setInterval(startVaccinated,2000)
+   
+</script>
