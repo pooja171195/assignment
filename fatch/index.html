@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    
+    <title>Document</title>
+</head>
+<body onload="DefaultScreen()">
+    <center>
+        <h1 id="Para1">7 Days Weather Forecast</h1>
+        <p id="inputContainer">Enter your City: </p>
+        <input style="box-shadow: 0 0 15px rgb(255, 255, 255);" type="text" id="cityInput"><button type="button" onclick="GetInfo()">Click Me</button>        
+        <h6 id="cityName"></h6>
+    </center>
+    
+    <div id = "weatherContainer">
+        <div id="iconsContainer">    
+            <div class = "icons">
+                <p class="weather" id="day1"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img1"></div>
+                <p class="minValues" id="day1Min">Loading...</p>
+                <p class="maxValues" id="day1Max">Loading...</p>
+                <p class="wind" id="day1wind">Loading...</p>
+                <p class="sun-rise" id="day1sun">Loading...</p>
+                <p class="sunset" id="day1sunset">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day2"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img2"></div>
+                <p class="minValues" id="day2Min">Loading...</p>
+                <p class="maxValues" id="day2Max">Loading...</p>
+                <p class="wind" id="day2wind">Loading...</p>
+                <p class="sun-rise" id="day2sun">Loading...</p>
+                <p class="sunset" id="day2sunset">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day3"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img3"></div>
+                <p class="minValues" id="day3Min">Loading...</p>
+                <p class="maxValues" id="day3Max">Loading...</p>
+                <p class="wind" id="day3wind">Loading...</p>
+                <p class="sun-rise" id="day3sun">Loading...</p>
+                <p class="sunset" id="day3sunset">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day4"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img4"></div>
+                <p class="minValues" id="day4Min">Loading...</p>
+                <p class="maxValues" id="day4Max">Loading...</p>
+                <p class="wind" id="day4wind">Loading...</p>
+                <p class="sun-rise" id="day4sun">Loading...</p>
+                <p class="sunset" id="day4sunset">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day5"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img5"></div>
+                <p class="minValues" id="day5Min">Loading...</p>
+                <p class="maxValues" id="day5Max">Loading...</p>
+                <p class="wind" id="day5wind">Loading...</p>
+                <p class="sun-rise" id="day5sun">Loading...</p>
+                <p class="sunset" id="day5sunset">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day6"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img6"></div>
+                <p class="minValues" id="day6Min">Loading...</p>
+                <p class="maxValues" id="day6Max">Loading...</p>
+                <p class="wind" id="day6wind">Loading...</p>
+                <p class="sun-rise" id="day6sun">Loading...</p>
+                <p class="sunset" id="day6sunset">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day7"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img7"></div>
+                <p class="minValues" id="day7Min">Loading...</p>
+                <p class="maxValues" id="day7Max">Loading...</p>
+                <p class="wind" id="day7wind">Loading...</p>
+                <p class="sun-rise" id="day7sun">Loading...</p>
+                <p class="sunset" id="day7sunset">Loading...</p>
+            </div>
+        </div>
+    </div>
+
+
+        <script src="index.js"></script>
+
+
+</body>
+</html>
