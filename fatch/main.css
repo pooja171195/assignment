@@ -101,8 +101,8 @@ img{
     box-shadow: 0 0 15px rgb(255, 255, 255);
 }
 .search-list{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    float: grid;
+   
     position: absolute;
     margin-left: 20%;
     height: 400px;
@@ -288,8 +288,8 @@ img{
         margin-bottom: 0;
     }
     .result-grid{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: inline-flex;
+        
     }
     .movie-info{
         text-align: left;
