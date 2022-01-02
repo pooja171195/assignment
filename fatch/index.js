@@ -7,6 +7,8 @@ function GetInfo() {
 fetch('https://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appid=32ba0bfed592484379e51106cef3f204')
 .then(response => response.json())
 .then(data => {
+    console.log(data);
+    //console.log(data.city);
 
     //Getting the min and max values for each day
     for(i = 0; i<7; i++){
@@ -22,14 +24,14 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appi
     document.getElementById("day" + (i+1) + "wind").innerHTML = "wind: " + Number(data.list[i].wind.speed).toFixed(1);
     
 }
-//    //Getting the sun-rise values for each day
+   //Getting the sun-rise values for each day
 //    for(i = 0; i<7; i++){
-//     document.getElementById("day" + (i+1) + "sun-rise").innerHTML = "sun-rise: " + Number(data.list[i].sunrise).toFixed(1);
+//     document.getElementById("day" + (i+1) + "sun-rise").innerHTML = "sun-rise: " + Number(data.list[i].city.sunrise).toFixed(1);
     
 // }
 //    //Getting the sunset values for each day
 //    for(i = 0; i<7; i++){
-//     document.getElementById("day" + (i+1) + "sunset").innerHTML = "sunset: " + Number(data.list[i].sunset).toFixed(1);
+//     document.getElementById("day" + (i+1) + "sunset").innerHTML = "sunset: " + Number(data.list[i].city.sunset).toFixed(1);
     
 // }
     //------------------------------------------------------------

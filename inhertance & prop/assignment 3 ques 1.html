@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+//grandparent is created by object literals
+    var grandparent={
+        name:"Rahul",  //this is the prototye of parent and i
+        age:90
+    }
+    console.log(grandparent)
+
+    var parent=Object.create(grandparent) //creating object using prototype
+
+    parent.name="Rohit";
+    parent.age=65;
+
+    console.log(parent)
+
+
+var me = Object.create(parent);
+
+me.name="Gourav";
+me.age=22;
+
+console.log(me);
+
+//this is the constructor method for creating object
+
+function grandparentt(n, a){ //this is constructor function
+
+    this.name=n,     // this is the proprites of grandparent
+    this.age=a
+}
+
+var grandparent1=new grandparentt("Rahul", 90) //and here we created the grandparent object with the helop od constructor function
+console.log(grandparent1);
+
+var parent1=new grandparentt("Rohit", 65);
+console.log(parent1)
+
+var me1= new grandparentt("Gourav", 22);
+console.log(me1)
+</script>

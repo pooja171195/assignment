@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #up{
+          width: 80%;
+          display: inline grid;
+        
+        }
+        #button{
+            width: 20%;
+            text-align: center;
+            height: 30px;
+            margin: 1%;
+        }
+        #foodbody , #orderid , #orderimg{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+   <div id="up">
+    <label>selectfood</label>
+        <input type="checkbox" value="pizza">pizza</input>
+        <input type="checkbox" value="pizza">samose</input>
+        <input type="checkbox" value="pizza">burger</input>
+        <input type="checkbox" value="pizza">chicken</input>
+           
+    <button id="button">Orderfood</button>
+   </div>
+   <div id="foodbody"> 
+
+   </div>
+   <div id="orderid"></div>
+   <div id="orderimg"></div>
+    
+</body>
+</html>
+<script>
+    var id=""
+    document.querySelector("#button").addEventListener("click", orderfood)
+var orderarr=[]
+    function orderfood(){
+let order = document.querySelector("#select").value
+orderarr=[]
+document.querySelector("#orderid ").innerHTML=""
+document.querySelector("#orderimg ").innerHTML=""
+document.querySelector("#foodbody ").innerHTML=""
+orderarr.push(order)
+let h1=document.createElement("h1")
+h1.textContent=orderarr
+document.querySelector("#foodbody").append(h1)
+
+let id=Math.round(Math.random()*1000)
+let h2= document.createElement("h2")
+h2.textContent="Order id -"+id
+
+let promise = new Promise(function(resolve , reject){
+
+    id= setInterval(function(){
+        resolve(alert(`od ${id} your order is prepared , please collect`))
+    } ,5000)
+})
+promise.then(function(ele){
+console.log(ele)
+document.querySelector("#orderid").append(h2)
+
+let img=document.createElement("img")
+img.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjxcas9mq30ydg0vrKJVven-0Ala6Ug7JYYA&usqp=CAU"
+
+document.querySelector("#orderimg").append(img)
+
+clearInterval(id)
+
+})
+
+    }
+
+</script>
