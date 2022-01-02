@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let arr=new myArr(4,5,6,7,8)
+
+    function myArr(){
+        this.length=arguments.length;        //gives length of array
+
+        Object.defineProperty(this, 'length',{
+            writable:true,
+            enumerable:false
+        })
+
+        for(let i=0;i<this.length;i++){      //gives key value pair 
+            this[i]=arguments[i]
+        }
+    }
+
+
+    myArr.prototype.पुश=function(ele){
+this[this.length]=ele
+this.length++
+    }
+
+    myArr.prototype.प्रथम =function(ele){
+        this[0]=ele
+        delete this[0]
+        this.length--  
+    }
+
+    myArr.prototype.उलटना=function(ele){
+        var res=new Array
+        for(var i=this.length-1;i>=0;i--){
+              res.push(myArr[i])
+        }
+        console.log(res)
+    }
+
+   
+  
+    // arr.पुश(9)
+    // arr.प्रथम()
+    // arr.उलटना()
+    
+    console.log(Object.values(arr))           //Object.value gives proper array
+</script>

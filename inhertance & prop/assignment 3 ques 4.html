@@ -1,57 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>hi</h1>
 </body>
 </html>
 <script>
-    function MyArray(){
-        this.length = arguments.length;
-        Object.defineProperty(this,"length",{
-            writable: true,
-            enumerable:false
-        });
-        for(let i=0;i<this.length;i++){
-            this[i]=arguments[i];
-        }
-    }
-    
-    var arr = new MyArray(1,2,3,4,5);
-    console.log(arr)
-
-    MyArray.prototype.pushh = function(elem){
-        this[this.length] = elem;
-        this.length++;
-
-    }
-    arr.pushh(6);
-    arr.pushh(7);
-    console.log(arr)
-    MyArray.prototype.reversee = function(){
-        var bag=[];
-        for(let j=this.length-1;j>=0;j--){
-            bag.push(this[j]);
-        }
-        var details={};
-        for(i=0;i<bag.length;i++){
-            if(details[i]==undefined){
-                details[i]=bag[i];
+    function MyArray() {
+            this.length = arguments.length;
+            Object.defineProperty(this, "length", {
+                writable: true,
+                enumerable: false
+            });
+            for (let i = 0; i < this.length; i++) {
+                this[i] = arguments[i];
             }
-            
         }
-       return details;
-    }
-    var array1 = arr.reversee();
-    console.log(array1)
-    
-    console.log(array1[0]);
 
-    console.log(Object.values(array1));
-    
+        var arr = new MyArray(1, 2, 3, 4, 5);
+        console.log(arr)
+
+        MyArray.prototype.pushh = function (elem) {
+            this[this.length] = elem;
+            this.length++;
+
+        }
+        arr.pushh(6);
+        arr.pushh(7);
+        console.log(arr)
+        MyArray.prototype.reversee = function () {
+            var bag = [];
+            for (let j = this.length - 1; j >= 0; j--) {
+                bag.push(this[j]);
+            }
+            var details = {};
+            for (i = 0; i < bag.length; i++) {
+                if (details[i] == undefined) {
+                    details[i] = bag[i];
+                }
+
+            }
+            return details;
+        }
+        var array1 = arr.reversee();
+        console.log(array1)
+
+        console.log(array1[0]);
+
+        console.log(Object.values(array1));
+
 </script>
