@@ -4,5 +4,12 @@
         "prototye",
         "Rohit"
     ],
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "files.autoSave": "onWindowChange",
+    "files.associations": {
+        "*": "html"
+    },
+    "editor.bracketPairColorization.enabled": true,
+    "extensions.closeExtensionDetailsOnViewChange": true,
+    "extensions.ignoreRecommendations": true
 }
