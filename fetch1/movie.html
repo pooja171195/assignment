@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            display: grid;
+            margin: 5%;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, fr);
+            border: 1px solid aqua;
+            text-align: center;
+        }
+        
+        main div {
+            margin: 5%;
+            width: 250px;
+            height: 520px;
+            margin: 19px 15px;
+            background: red;
+        }
+        
+        img {
+            margin: 0;
+            width: 100%;
+            height: 78%;
+            object-fit: cover;
+        }
+        
+        h2 {
+            font-size: 20px;
+            font-family: sans-serif;
+            font-weight: bold;
+            text-align: center;
+            color: rgb(19, 18, 18);
+        }
+        
+        .btn {
+            border-radius: 10px;
+            background-color: chocolate;
+            color: darkblue;
+            border: darkred;
+            height: 30px;
+            width: 60px;
+            margin-left: 20px;
+            box-shadow: rgba(0, 0, 0, 0.2) 5px 5px;
+        }
+        
+        .search {
+            margin-left: 30%;
+            height: 25px;
+            width: 300px;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.4) 10px 10px inset
+        }
+        
+        hr {
+            border: 2px solid black;
+            box-shadow: rgba(0, 0, 0, 0.2) 5px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form">
+        <input type="text" id="search" placeholder="Search" class="search" />
+        <button class="btn" onclick="Submit">Search</button>
+    </form>
+
+    <hr>
+    <main id="main"></main>
+</body>
+
+</html>
+<script>
+    const apiUrl = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1';
+    const IMGPATH = "https://image.tmdb.org/t/p/w1280";
+    const SEARCHAPI =
+        "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
+
+    const main = document.getElementById("main");
+    const form = document.getElementById("form");
+    const search = document.getElementById("search");
+
+    showMovies(apiUrl);
+
+    function showMovies(url) {
+        fetch(url).then(res => res.json())
+            .then(function(data) {
+                console.log(data.results);
+                data.results.forEach(element => {
+                    const el = document.createElement('div');
+                    const image = document.createElement('img');
+                    const text = document.createElement('h4');
+                    const text1 = document.createElement("p")
+                    const date = document.createElement("Date")
+
+                    text.innerHTML = `${element.title}`;
+                    image.src = IMGPATH + element.poster_path;
+                    text1.innerHTML = `${element.vote_average}`;
+                    date.innerHTML = `${element.release_date}`;
+                    el.appendChild(image);
+                    el.appendChild(text);
+                    el.appendChild(text1)
+                    el.appendChild(date)
+                    main.appendChild(el);
+                });
+            });
+    }
+
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        main.innerHTML = '';
+
+        const searchTerm = search.value;
+
+        if (searchTerm) {
+            showMovies(SEARCHAPI + searchTerm);
+            search.value = "";
+        }
+        if (element.vote_average > 8) {
+            text1.textContent = "(Recommended)" + " " + (`IMDB rating-${element.vote_average}`);
+            text1.style.color = "green";
+            text1.style.background = "blue";
+        } else {
+            text1.textContent = (`IMDB rating-${element.vote_average}`);
+
+        }
+
+    });
+</script>
